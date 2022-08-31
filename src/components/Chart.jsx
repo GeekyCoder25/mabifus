@@ -63,7 +63,7 @@ const BarChart = () => {
 			<div>
 				<Line
 					data={{
-						labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'],
+						labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 						datasets: [
 							{
 								label: 'Heart Rate',

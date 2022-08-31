@@ -124,12 +124,7 @@ const Report = () => {
 				</div>
 				<div>
 					<button
-						style={{
-							color: '#585ce5',
-							fontWeight: 600,
-							whiteSpace: 'nowrap',
-							background: 'transparent',
-						}}
+						className='addnewbutton'
 						onClick={() => {
 							setAddNew(
 								<AddNew
