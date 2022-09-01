@@ -48,9 +48,17 @@ const AddNew = props => {
 		e.target.files[0].size / 1048576 < 1
 			? setsize(`${Math.ceil(e.target.files[0].size / 1024)} Kb`)
 			: setsize(`${Math.ceil(e.target.files[0].size / 1048576)} Mb`);
-		e.target.files[0].size / 1048576 > 1000
-			? setnamevalid(<p className="namevalid">File is too large</p>)
-			: setnamevalid(null);
+		if (e.target.files[0].size / 1048576 > 1000) {
+			setnamevalid(<p className="namevalid">File is too large</p>);
+			document.querySelector('#addFile').setAttribute('disabled', 'disabled');
+			document.querySelector('#addFile').classList.add('addfiledisabled');
+		} else {
+			setnamevalid(null);
+			document
+				.querySelector('#addFile')
+				.removeAttribute('disabled', 'disabled');
+			document.querySelector('#addFile').classList.remove('addfiledisabled');
+		}
 	};
 
 	return (
@@ -76,7 +84,7 @@ const AddNew = props => {
 						<input type="file" name="file" id="file" onChange={filename} />
 					</span>
 				</div>
-				<button type="submit" onClick={addReport}>
+				<button type="submit" onClick={addReport} id="addFile">
 					Add
 				</button>
 				<div>{namevalid}</div>
@@ -124,7 +132,7 @@ const Report = () => {
 				</div>
 				<div>
 					<button
-						className='addnewbutton'
+						className="addnewbutton"
 						onClick={() => {
 							setAddNew(
 								<AddNew

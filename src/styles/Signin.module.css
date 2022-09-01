@@ -1,4 +1,4 @@
-.siginstyles {
+.signinstyles {
 	min-height: 100vh;
 	height: 100%;
 	max-width: 100vw;
@@ -11,9 +11,10 @@
 			url('../../public/images/doctor.png') 95% 10% / contain no-repeat fixed;
 	color: #fff;
 }
-.main {
-	padding-left: 5rem;
-	margin-top: 5%;
+.signinstyles .header {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 .nav {
 	padding: 2.5rem;
@@ -31,130 +32,117 @@
 	color: grey;
 	margin-right: 100px;
 }
-.header {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+.main {
+	padding: 5%;
 }
 .header h1 {
 	font-size: 4rem;
 }
-.header h1 span {
-	color: rgb(30, 117, 198);
+.header p {
+	font-size: 1.2rem;
+	color: grey;
 }
-.header a {
-	color: rgb(30, 117, 198);
+.header > span {
+	font-size: 1.2rem;
+}
+.header > span > a {
+	color: rgba(30, 117, 198);
 }
 .form {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-auto-rows: 70px;
-	margin-top: 150px;
-	gap: 30px;
-	width: 30%;
-	min-width: 700px;
-	position: relative;
-	transform: translateY(-100px);
+	display: flex;
+	flex-direction: column;
+	width: 35%;
+	margin-top: 5%;
+	gap: 100px;
 }
 .form div {
 	position: relative;
 }
-.form div i {
-	position: absolute;
-	margin: 25px;
-	right: 0;
-	width: fit-content;
-}
-
 .form input {
-	border-radius: 25px;
-	background-color: rgb(50, 54, 69);
-	outline: blue;
-	border: 3px solid rgb(31, 36, 62);
+	border: none;
+	background-color: transparent;
+	outline: none;
+	border-bottom: 2px solid #fff;
 	color: #fff;
-	padding-left: 30px;
+	padding: 20px 0 10px 0px;
 	width: 100%;
 	height: 100%;
-}
-.form input:focus {
-	border: 3px solid rgb(56, 111, 164);
 }
 .form .error {
-	border: 3px solid rgb(255, 0, 0);
+	border-bottom: 3px solid rgb(255, 0, 0);
 }
-.form .email,
-.form .password {
-	grid-column: 1 / -1;
+.form .labelerror {
+	color: rgb(255, 0, 0);
 }
-.form div .confirmpasswordvalid {
-	color: red;
+.form input:focus {
+	border-bottom: 3px solid rgba(30, 117, 198);
 }
-.form div .fa-circle-exclamation {
-	position: unset;
-	margin: 5px 10px 5px 20px;
+.form input:focus + label {
+	top: -20px;
+	color: rgba(30, 117, 198);
 }
-.form button {
-	border-radius: 30px;
-	transform: translateY(20px);
-	background: rgb(28, 144, 240);
-	color: #fff;
+.form div label {
+	display: block;
+	position: absolute;
+	top: 0;
+	transition: top 0.3s ease;
 }
-.form .methodsubmit {
-	background: rgb(84, 91, 105);
-	padding: 0;
+.form div span {
+	position: absolute;
+	right: 0;
+	display: none;
+	cursor: pointer;
+	margin: 10px;
 }
-.form .methodsubmit a {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.form .inputfilled {
+	top: -20px;
+}
+.form div .show {
+	display: inline-block;
+}
+.form input:-webkit-autofill {
+	transition: background-color 5000s ease-in-out 0s;
+	-webkit-text-fill-color: #fff;
 }
 .form .formvalid {
 	color: red;
-	font-size: 0.8rem;
 	display: flex;
 	align-items: center;
+	margin-top: 10px;
+	gap: 10px;
 }
-.formSuccess {
-	color: green;
-}
-.dotTyping {
+.form .forgotpassword {
+	color: rgba(30, 117, 198);
+	margin-top: 20px;
 	display: inline-block;
-	position: relative;
-	left: -9999px;
-	width: 8px;
-	height: 8px;
-	border-radius: 5px;
-	background-color: #fff;
-	color: #fff;
-	box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	animation: dotTyping 1.5s infinite linear;
-	margin-left: 25px;
 }
-
-@keyframes dotTyping {
-	0% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	}
-	16.667% {
-		box-shadow: 9984px -10px 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	}
-	33.333% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	}
-	50% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px -10px 0 0 #fff, 10014px 0 0 0 #fff;
-	}
-	66.667% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	}
-	83.333% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px -10px 0 0 #fff;
-	}
-	100% {
-		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
-	}
+.form .formfooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.form .formfooter input {
+	width: fit-content;
+	margin-right: 10px;
+}
+.form .formfooter p {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+}
+.form .formfooter label {
+	position: static;
+}
+.form button {
+	border-radius: 30px;
+	background: rgb(28, 144, 240);
+	color: #fff;
+	padding: 20px 50px;
+	transition: background 0.3s ease;
+}
+.form button:hover {
+	background: rgba(28, 144, 240, 0.7);
 }
 .footer {
 	position: fixed;
@@ -165,10 +153,31 @@
 	font-family: camar;
 	font-size: 3vw;
 	letter-spacing: 0.3125rem;
+	animation: colorchanger 20s linear infinite;
+}
+@keyframes colorchanger {
+	0% {
+		color: rgba(30, 117, 198);
+	}
+	50% {
+		color: rgb(255, 255, 255);
+	}
+
+	100% {
+		color: rgba(30, 117, 198);
+	}
 }
 @media (max-width: 768px) {
+	.signinstyles {
+		background: linear-gradient(
+				to bottom right,
+				rgb(40, 42, 55),
+				rgba(79, 82, 95, 0.85)
+			),
+			url('../../public/images/doctor.png') 90% 45% / contain no-repeat fixed;
+	}
 	.main {
-		padding-left: unset;
+		padding: 0 0 20% 0;
 		width: 90%;
 		margin: 10% auto 0;
 	}
@@ -182,19 +191,23 @@
 		margin-right: 50px;
 	}
 	.header h1 {
-		font-size: 3rem;
+		font-size: 2rem;
+	}
+	.header p {
+		width: 70%;
 	}
 	.form {
-		grid-template-columns: repeat(1, 1fr);
-		gap: 30px;
+		gap: 70px;
 		width: unset;
-		margin: auto;
-		margin-top: 150px;
-		min-width: unset;
-		position: relative;
+		margin-top: 30%;
 	}
-	.form .methodsubmit {
-		grid-row: 7 / 8;
+	.form button {
+		width: 100%;
+	}
+	.form .formfooter {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 50px;
 	}
 	.footer {
 		display: none;

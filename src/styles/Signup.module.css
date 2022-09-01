@@ -1,0 +1,215 @@
+.signupstyles {
+	min-height: 100vh;
+	height: 100%;
+	max-width: 100vw;
+	background: linear-gradient(to right, rgb(40, 42, 55), rgba(79, 82, 95, 0.85)),
+		/* background: linear-gradient(
+			to right,
+			rgb(87, 92, 229),
+			rgba(87, 92, 229, 0.5)
+		), */
+			url('../../public/images/doctor.png') 95% 10% / contain no-repeat fixed;
+	color: #fff;
+}
+.main {
+	padding-left: 5rem;
+	margin-top: 5%;
+	height: fit-content;
+}
+.nav {
+	padding: 2.5rem;
+	padding-left: 4rem;
+	display: flex;
+	align-items: center;
+	width: 45%;
+	min-width: 700px;
+}
+.nav h1 {
+	font-size: 1.875rem;
+	margin-right: auto;
+}
+.nav a {
+	color: grey;
+	margin-right: 100px;
+}
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.header h1 span {
+	color: rgb(30, 117, 198);
+}
+.header a {
+	color: rgb(30, 117, 198);
+}
+.form {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-auto-rows: 70px;
+	margin-top: 50px;
+	gap: 30px;
+	width: 30%;
+	min-width: 700px;
+	position: relative;
+}
+.form div {
+	position: relative;
+}
+.form div i {
+	position: absolute;
+	margin: 25px;
+	right: 0;
+	width: fit-content;
+}
+
+.form input {
+	border-radius: 25px;
+	background-color: rgb(50, 54, 69);
+	outline: blue;
+	border: 3px solid rgb(31, 36, 62);
+	color: #fff;
+	padding-left: 30px;
+	width: 100%;
+	height: 100%;
+}
+.form input:focus {
+	border: 3px solid rgb(56, 111, 164);
+}
+.form input:-webkit-autofill {
+	transition: background-color 5000s ease-in-out 0s;
+	-webkit-text-fill-color: #fff;
+}
+.form .error {
+	border: 3px solid rgb(255, 0, 0);
+}
+.form .email,
+.form .password,
+.form .acceptterms {
+	grid-column: 1 / -1;
+}
+.form div .confirmpasswordvalid {
+	color: red;
+	display: inline-block;
+	margin-top: 5px;
+}
+.form div .fa-circle-exclamation {
+	position: unset;
+	margin: 5px 10px 5px 20px;
+}
+.form .acceptterms {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-left: 10px;
+	transition: transform 0.3s ease;
+	transform-origin: center left;
+}
+.form .accepttermserror {
+	transform: scale(1.1);
+}
+.form .acceptterms input {
+	width: fit-content;
+}
+.form .acceptterms a {
+	color: rgba(30, 117, 198);
+}
+.form button {
+	border-radius: 30px;
+	transform: translateY(-20px);
+	background: rgb(28, 144, 240);
+	color: #fff;
+	transition: background 0.3s ease;
+}
+.form button:hover {
+	background: rgba(28, 144, 240, 0.7);
+}
+.form .methodsubmit {
+	background: rgb(84, 91, 105);
+	padding: 0;
+}
+.form .methodsubmit:hover {
+	background: rgba(84, 91, 105, 0.7);
+}
+.form .methodsubmit a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.form .formvalid {
+	color: red;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	margin-top: 2px;
+}
+.formSuccess {
+	color: green;
+}
+.footer {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+.footer h1 {
+	font-family: camar;
+	font-size: 3vw;
+	letter-spacing: 0.3125rem;
+	animation: colorchanger 60s linear infinite;
+}
+@keyframes colorchanger {
+	0% {
+		color: rgba(30, 117, 198);
+	}
+	50% {
+		color: rgb(255, 255, 255);
+	}
+
+	100% {
+		color: rgba(30, 117, 198);
+	}
+}
+@media (max-width: 768px) {
+	.signupstyles {
+		background: linear-gradient(
+				to bottom right,
+				rgb(40, 42, 55),
+				rgba(79, 82, 95, 0.85)
+			),
+			url('../../public/images/doctor.png') 90% 5% / contain no-repeat fixed;
+	}
+	.main {
+		padding: 0 0 5% 0;
+		width: 90%;
+		margin: 10% auto 0;
+	}
+	.nav {
+		min-width: unset;
+		width: 90%;
+		padding: 7%;
+	}
+	.nav a {
+		display: none;
+		margin-right: 50px;
+	}
+	.header h1 {
+		font-size: 3rem;
+	}
+	.form {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 30px;
+		width: unset;
+		margin: auto;
+		margin-top: 50px;
+		min-width: unset;
+		position: relative;
+	}
+	.form .methodsubmit {
+		grid-row: 8 / 9;
+	}
+	.footer {
+		display: none;
+	}
+}

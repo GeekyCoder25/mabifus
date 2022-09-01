@@ -40,6 +40,42 @@ button {
 	cursor: pointer;
 	border-radius: 0.5rem;
 }
+.dotTyping {
+	display: inline-block;
+	position: relative;
+	left: -9999px;
+	width: 8px;
+	height: 8px;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #fff;
+	box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	animation: dotTyping 1.5s infinite linear;
+	margin-left: 25px;
+}
+@keyframes dotTyping {
+	0% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+	16.667% {
+		box-shadow: 9984px -10px 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+	33.333% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+	50% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px -10px 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+	66.667% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+	83.333% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px -10px 0 0 #fff;
+	}
+	100% {
+		box-shadow: 9984px 0 0 0 #fff, 9999px 0 0 0 #fff, 10014px 0 0 0 #fff;
+	}
+}
 .errorpage {
 	width: 100vw;
 	height: 100vh;
@@ -60,7 +96,7 @@ button {
 	position: fixed;
 	top: 0;
 	display: flex;
-	padding: 1.25rem 0;
+	padding: 15px 0;
 	align-items: center;
 	justify-content: space-between;
 	/* max-width: 112.5rem; */
@@ -367,6 +403,9 @@ button {
 	padding: 20px;
 	border: 2px solid;
 	border-color: var(--themecolor);
+}
+.addnew .addfiledisabled {
+	color: grey;
 }
 .bg {
 	display: none;

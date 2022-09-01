@@ -109,7 +109,7 @@ const Navbar = ({ handleUserSignIn }) => {
 				{handleUserSignIn || (
 					<div className="signup">
 						<p className="or">or</p>
-						<Link href={'/signin'}>
+						<Link href={'/signup'}>
 							<a>
 								<button>Create An Account</button>
 							</a>
