@@ -58,7 +58,7 @@
 .form div {
 	position: relative;
 }
-.form input {
+.form input:not(:last-child) {
 	border: none;
 	background-color: transparent;
 	outline: none;
