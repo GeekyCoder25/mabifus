@@ -19,7 +19,7 @@
 		{
 			"title": "Glucose Level",
 			"value": "75-90",
-			"rate": "20% Higher Than last Month",
+			"rate": "20% Higher Than Last Month",
 			"icon": "yin-yang",
 			"istrue": true,
 			"id": 3
@@ -33,31 +33,36 @@
 			"id": 4
 		}
 	],
-	"report": [
+	"users": [
 		{
-			"title": "Blood Pressure Report",
-			"size": "2 Mb",
-			"id": 1
+			"firstname": "Toyyib",
+			"lastname": "Lawal",
+			"email": "toyibe25@gmail.com",
+			"phonenumber": "09073002599",
+			"password": "toyibe25112001",
+			"id": "toyibe25@gmail.com",
+			"report": [
+				{ "title": "Toyib Blood Pressure Report", "size": "2 Mb", "id": 1 },
+				{ "title": "Heart Rate Report", "size": "70 Kb", "id": 2 },
+				{ "title": "Glucose Level Report", "size": "155 Kb", "id": 3 },
+				{ "title": "Blood Count Report", "size": "4 Mb", "id": 4 },
+				{ "title": "X-Ray Scan Report", "size": "9 Mb", "id": 5 }
+			]
 		},
 		{
-			"title": "Heart Rate Report",
-			"size": "70 Kb",
-			"id": 2
-		},
-		{
-			"title": "Glucose Level Report",
-			"size": "155 Kb",
-			"id": 3
-		},
-		{
-			"title": "Blood Count Report",
-			"size": "4 Mb",
-			"id": 4
-		},
-		{
-			"title": "X-Ray Scan Report",
-			"size": "9 Mb",
-			"id": 5
+			"firstname": "Geeky",
+			"lastname": "Coder",
+			"email": "toyibe233@gmail.com",
+			"phonenumber": "+2349030582706",
+			"password": "geekycoder",
+			"id": "toyibe233@gmail.com",
+			"report": [
+				{ "title": "geeky Blood Pressure Report", "size": "2 Mb", "id": 1 },
+				{ "title": "Heart Rate Report", "size": "70 Kb", "id": 2 },
+				{ "title": "Glucose Level Report", "size": "155 Kb", "id": 3 },
+				{ "title": "Blood Count Report", "size": "4 Mb", "id": 4 },
+				{ "title": "X-Ray Scan Report", "size": "9 Mb", "id": 5 }
+			]
 		}
 	]
 }

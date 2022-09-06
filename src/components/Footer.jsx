@@ -61,6 +61,11 @@ const Footer = () => {
 							<a>Contact@Mabifus.com</a>
 						</Link>
 					</p>
+					<p onClick={()=> localStorage.clear()}>
+						<Link href='/signin'>
+							<a>Logout</a>
+						</Link>
+					</p>
 				</div>
 				<div className='footer-icons'>
 					<h1>Socials</h1>

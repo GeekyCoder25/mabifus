@@ -11,11 +11,11 @@ export const getStaticProps = async () => {
 	};
 };
 
-function Home({ testsdata, firstname, lastname }) {
+function Home({ testsdata }) {
 	return (
 		<section className="home">
-			<Head title="Homepage" content="Homepage" />
-			<Header firstname={firstname} lastname={lastname} />
+			<Head title="Homepage" description={'Mabifus Medical Dashboard'} />
+			<Header />
 			{testsdata && <Tests tests={testsdata} />}
 			<ChartContainer />
 		</section>
