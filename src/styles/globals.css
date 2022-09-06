@@ -96,16 +96,15 @@ button {
 	position: fixed;
 	top: 0;
 	display: flex;
-	padding: 15px 0;
+	padding: 15px 4%;
 	align-items: center;
 	justify-content: space-between;
-	/* max-width: 112.5rem; */
-	width: 92%;
+	width: 100%;
 	z-index: 9;
 	background: var(--backgroundcolor);
 	background: var(--backgroundcolor);
 	margin: auto;
-	left: 4%;
+	left: 0;
 }
 .navheader {
 	display: flex;
@@ -128,9 +127,9 @@ button {
 	position: relative;
 	z-index: 999;
 }
-.nav .fas {
+.nav .bars .fas {
 	background-color: var(--buttonbackgroundcolor);
-	padding: 0.625rem;
+	padding: 0.625rem 0.8rem;
 	border-radius: 0.625rem;
 	font-size: 1.5rem;
 }
@@ -148,6 +147,9 @@ button {
 .navbg {
 	display: none;
 }
+.navbodymobile {
+	overflow-y: hidden;
+}
 .nav .navpagemobileleft {
 	left: 0;
 }
@@ -155,7 +157,7 @@ button {
 	position: fixed;
 	top: 0;
 	z-index: 99;
-	width: 65%;
+	width: 70%;
 	background-color: var(--themecolor);
 	display: flex;
 	flex-direction: column;
@@ -169,9 +171,12 @@ button {
 .navpagemobile a {
 	color: #fff;
 }
+.navpagemobile .signinbutton {
+	margin-top: 30%;
+}
 .nav ul .navpagemobilelinks {
 	display: block;
-	transform: translateY(-100px);
+	/* transform: translateY(-100px); */
 }
 .signup {
 	display: none;
@@ -191,6 +196,18 @@ button {
 	font-size: 5px;
 	border-radius: 8px;
 	margin: 15px;
+}
+.signout {
+	align-items: center;
+	gap: 0.625rem;
+	margin-top: 30%;
+	display: none;
+}
+.signoutactive {
+	display: flex;
+}
+.signout i {
+	font-size: 2rem;
 }
 /* nav end */
 .home {
@@ -355,6 +372,7 @@ button {
 }
 .noreport {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	min-height: 400px;

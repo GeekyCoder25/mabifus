@@ -1,25 +1,20 @@
 import '../src/styles/globals.css';
 import '../src/styles/fontawesome/css/all.css';
-
 import Layout from '../src/components/Layout';
-import { useState } from 'react';
+import Meta from '../src/components/Meta';
 
 function MyApp({ Component, pageProps }) {
-	const [handleUserSignIn, sethandleUserSignIn] = useState(false);
-	const [handleFirstname, setFirstname] = useState('');
-	const [handleLastname, setLastname] = useState('');
 	return (
 		<div className="App">
-			<Layout handleUserSignIn={handleUserSignIn}>
-				<Component
-					{...pageProps}
-					className="container"
-					sethandleUserSignIn={sethandleUserSignIn}
-					firstname={handleFirstname}
-					lastname={handleLastname}
-					setFirstname={setFirstname}
-					setLastname={setLastname}
-				/>
+			<Meta
+				title={'Medical Site'}
+				description={'Mabifus Medical Site'}
+				keywords={
+					'mabifus, mabifus medical, mabifus medical page, ilorin, taiwo, unity, x-ray, radiogrpahy, scan'
+				}
+			/>
+			<Layout>
+				<Component {...pageProps} className="container" />
 			</Layout>
 		</div>
 	);

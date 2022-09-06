@@ -4,10 +4,10 @@ import Meta from '../src/components/Meta';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const Sigin = ({ sethandleUserSignIn }) => {
+const Sigin = () => {
 	const { push } = useRouter();
 	const [loading, setloading] = useState('Login');
-	const [emailvalid, setEmailvalid] = useState(null);
+	const [emailvalid, setEmailvalid] = useState(false);
 	const [passwordValid, setPasswordValid] = useState('');
 	const [showIcon, setShowIcon] = useState(<i className="fas fa-eye"></i>);
 	useEffect(() => {
@@ -61,52 +61,73 @@ const Sigin = ({ sethandleUserSignIn }) => {
 			});
 		});
 		setloading(<>Login</>);
-		if (
-			inputsfilter <= 0 &&
-			(email.value.length < 6 ||
-				!email.value.includes('@') ||
-				!email.value.includes('.'))
-		) {
-			setEmailvalid(
-				<>
-					<i
-						className={`${'fa-solid fa-circle-exclamation'}	
-							${styles['fa-circle-exclamation']}`}
-					></i>
-					<> Please input a valid email</>
-				</>
-			);
-			email.classList.add(styles.error);
-		} else if (inputsfilter <= 0 && password.value.length < 8) {
-			setPasswordValid(
-				<>
-					<i
-						className={`
-							${'fa-solid fa-circle-exclamation'}
-							${styles['fa-circle-exclamation']}
-							`}
-					></i>
-					<>Incorrect password</>
-				</>
-			);
-			password.classList.add(styles.error);
-		} else if (inputsfilter <= 0) {
-			console.log('Logging In');
-			setloading(
-				<>
-					Logging in
-					<i className="dotTyping"></i>
-				</>
-			);
-			setTimeout(() => {
-				push('/');
-			}, 500);
-			sethandleUserSignIn(true);
-		}
+		const getData = async () => {
+			const res = await fetch('/api/users');
+			const data = await res.json();
+			return data;
+		};
+		getData().then(data => {
+			console.log(data);
+			const getUser = data.find(user => user.id === email.value);
+			if (
+				inputsfilter <= 0 &&
+				(email.value.length < 6 ||
+					!email.value.includes('@') ||
+					!email.value.includes('.'))
+			) {
+				setEmailvalid(
+					<>
+						<i className="fas fa-circle-exclamation"></i>
+						<> Please input a valid email</>
+					</>
+				);
+				email.classList.add(styles.error);
+			} else if (inputsfilter <= 0 && !getUser) {
+				setEmailvalid(
+					<>
+						<i className="fas fa-circle-exclamation"></i>
+						No account is associated with email.{' '}
+						<Link href={'/signup'}>
+							<a className={styles.formvalidlink}>Create account</a>
+						</Link>
+					</>
+				);
+			} else if (inputsfilter <= 0 && password.value !== getUser.password) {
+				setPasswordValid(
+					<>
+						<i className="fas fa-circle-exclamation"></i>
+						<>Incorrect password</>
+					</>
+				);
+				password.classList.add(styles.error);
+			} else if (inputsfilter <= 0) {
+				console.log('Logging In');
+				setloading(
+					<>
+						Logging in
+						<i className="dotTyping"></i>
+					</>
+				);
+				setTimeout(() => {
+					push('/');
+				}, 5000);
+				localStorage.setItem(
+					'username',
+					`${getUser.firstname} ${getUser.lastname}`
+				);
+				localStorage.setItem('email', `${getUser.email}`);
+			}
+		});
 	};
 	return (
 		<>
-			<Meta title="Sign in" />
+			<Meta
+				title="Log in"
+				description={'Mabifus Signin'}
+				keywords={
+					'mabifus, mabifus signin, mabifus login, mabifus medical page signin '
+				}
+			/>
 			<section className={styles.signinstyles}>
 				<nav className={styles.nav}>
 					<h1>Mabifus </h1>
@@ -134,7 +155,7 @@ const Sigin = ({ sethandleUserSignIn }) => {
 							<label id="label" htmlFor="email">
 								Email
 							</label>
-							{<p className={styles.formvalid}>{emailvalid}</p>}
+							<p className={styles.formvalid}>{emailvalid}</p>
 						</div>
 						<div>
 							<input
@@ -175,3 +196,5 @@ const Sigin = ({ sethandleUserSignIn }) => {
 };
 
 export default Sigin;
+
+// Sigin.getLayout = page => <>{page}</>;

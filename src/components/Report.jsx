@@ -1,7 +1,8 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 const AddNew = props => {
 	const [title, settitle] = useState(null);
-	const [size, setsize] = useState('1 kb');
+	const [size, setsize] = useState('0.0 kb');
 	const [namevalid, setnamevalid] = useState(null);
 
 	useEffect(() => {
@@ -23,8 +24,7 @@ const AddNew = props => {
 		} else {
 			bg.classList.remove('blurbg');
 			props.setAddNew(null);
-
-			fetch('/api/report', {
+			fetch(`/api/report/${localStorage.getItem('email')}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(addednew),
@@ -99,15 +99,22 @@ export { AddNew };
 const Report = () => {
 	const [reportBar, setReportBar] = useState(null);
 	const [addNew, setAddNew] = useState(null);
+	const [handleUserSignIn, sethandleUserSignIn] = useState(false);
+	const { push } = useRouter();
 	const date = new Date();
 	let month = date.toLocaleString('default', { month: 'long' });
 	let year = date.getFullYear();
 	useEffect(() => {
-		fetch('/api/report')
-			.then(res => res.json())
-			.then(data => {
-				setReportBar(data);
-			});
+		const emailLocalStorageCheck = localStorage.getItem('email');
+		emailLocalStorageCheck &&
+			fetch(`/api/report/${localStorage.getItem('email')}`)
+				.then(res => res.json())
+				.then(data => {
+					setReportBar(data);
+				});
+		emailLocalStorageCheck
+			? sethandleUserSignIn(true)
+			: sethandleUserSignIn(false);
 	}, []);
 
 	return (
@@ -131,21 +138,23 @@ const Report = () => {
 					</select>
 				</div>
 				<div>
-					<button
-						className="addnewbutton"
-						onClick={() => {
-							setAddNew(
-								<AddNew
-									setAddNew={setAddNew}
-									set={setReportBar}
-									reportBar={reportBar}
-									result={reportBar.map(result => result.id)}
-								/>
-							);
-						}}
-					>
-						Add New
-					</button>
+					{handleUserSignIn && (
+						<button
+							className="addnewbutton"
+							onClick={() => {
+								setAddNew(
+									<AddNew
+										setAddNew={setAddNew}
+										set={setReportBar}
+										reportBar={reportBar}
+										result={reportBar.map(result => result.id)}
+									/>
+								);
+							}}
+						>
+							Add New
+						</button>
+					)}
 				</div>
 			</div>
 			{/* <div>{handleDelete}</div> */}
@@ -164,9 +173,14 @@ const Report = () => {
 								<i
 									className="fas fa-trash"
 									onClick={() => {
-										fetch(`/api/report/${result.id}`, {
-											method: 'DELETE',
-										}).then(
+										fetch(
+											`/api/report/${localStorage.getItem('email')}/${
+												result.id
+											}`,
+											{
+												method: 'DELETE',
+											}
+										).then(
 											setReportBar(reportBar.filter(i => i.id !== result.id))
 										);
 									}}
@@ -179,7 +193,18 @@ const Report = () => {
 					))}
 				</div>
 			) : (
-				<h1 className="noreport">You don&apos;t have any Reports right now</h1>
+				<h1 className="noreport">
+					You don&apos;t have any Health Reports right now
+					{!handleUserSignIn && (
+						<span>
+							<br />
+							<button href="/signin" onClick={() => push('/signin')}>
+								Log in
+							</button>{' '}
+							to add a new Health Report
+						</span>
+					)}
+				</h1>
 			)}
 			{addNew}
 		</section>

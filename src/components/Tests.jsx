@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 const Test = ({ tests }) => {
-	// console.log(tests);
 	return (
 		<section className="tests">
 			{tests.map(test => (
