@@ -4,7 +4,7 @@ import Tests from '../src/components/Tests';
 import ChartContainer from '../src/components/Chartconatiner';
 
 export const getStaticProps = async () => {
-	const res = await fetch('https://mabifus.vercel.app/api/test');
+	const res = await fetch('http://localhost:3000/api/test');
 	const data = await res.json();
 	return {
 		props: { testsdata: data },
