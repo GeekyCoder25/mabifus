@@ -17,7 +17,7 @@ const Profile = () => {
 	const { push } = useRouter();
 	// const [picture, setpicture] = useState();
 	const [loading, setloading] = useState('Save Profile');
-	const [userExists, setUserExists] = useState(true);
+	const [noUserExists, setNoUserExists] = useState(true);
 
 	useEffect(() => {
 		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
@@ -150,12 +150,12 @@ const Profile = () => {
 	useEffect(() => {
 		!handleUserSignIn &&
 			setTimeout(() => {
-				setUserExists(false);
+				setNoUserExists(false);
 			}, 3000);
 	}, [handleUserSignIn, push]);
 	return !userData ? (
 		<div className="pageLoading">
-			{userExists ? (
+			{noUserExists ? (
 				<div>
 					Loading
 					<span className="dotTypingPageLoading"></span>
@@ -165,7 +165,7 @@ const Profile = () => {
 					<button href="/signin" onClick={() => push('/signin')}>
 						Log in
 					</button>{' '}
-					<p>You must login first to view your profile</p>
+					<p>You must login to view your profile</p>
 				</>
 			)}
 		</div>
@@ -195,8 +195,8 @@ const Profile = () => {
 							alt="userlogo"
 							placeholder="blur"
 							blurDataURL="/images/placeholder.gif"
-							width={200}
-							height={200}
+							width={240}
+							height={240}
 						/>
 						<label htmlFor="chooseimage" ref={basicDetail}>
 							<i className={`${'fas fa-camera'} ${styles['fa-camera']}`}></i>
