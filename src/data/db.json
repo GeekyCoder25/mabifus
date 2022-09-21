@@ -33,33 +33,5 @@
 			"_id": 4
 		}
 	],
-	"users": [
-		{
-			"_id": 2376322051695265300,
-			"firstname": "Toyib",
-			"lastname": "Lawal",
-			"email": "toyibe25@gmail.com",
-			"password": "toyibe25112001",
-			"dob": "",
-			"gender": "",
-			"phonenumber": "",
-			"bloodgroup": "",
-			"bloodtype": "",
-			"height": "",
-			"weight": "",
-			"report": [
-				{ "title": "Toyib Blood Pressure Report", "size": "2 Mb", "_id": 1 },
-				{ "title": "Heart Rate Report", "size": "70 Kb", "_id": 2 },
-				{ "title": "Glucose Level Report", "size": "155 Kb", "_id": 3 },
-				{ "title": "Blood Count Report", "size": "4 Mb", "_id": 4 },
-				{ "title": "X-Ray Scan Report", "size": "9 Mb", "_id": 5 },
-				{
-					"title": "You can add or delete your medical health reports here",
-					"size": "0.0 b",
-					"_id": 0
-				}
-			],
-			"totalusers": 1
-		}
-	]
+	"users": []
 }

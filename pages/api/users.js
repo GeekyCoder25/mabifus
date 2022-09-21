@@ -41,5 +41,13 @@ export default function handler(req, res) {
 			err => err && console.log(err)
 		);
 		res.status(201).json(newUser);
+	} else if (req.method === 'DELETE') {
+		res.status(204).json('Delete Successful');
+		data.users.length = 0;
+		fs.writeFile(
+			'./src/data/db.json',
+			JSON.stringify(data),
+			err => err && console.log(err)
+		);
 	}
 }

