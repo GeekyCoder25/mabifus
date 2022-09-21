@@ -170,9 +170,10 @@ const Signup = () => {
 				const lastname = document.querySelector('#lastname').value;
 				const email = document.querySelector('#email').value;
 				const password = document.querySelector('#password').value;
-				const id = Math.ceil(
-					Math.random() * 1000000000000000000000000000000000000000000000000000
-				);
+				const id = email;
+				// const id = Math.ceil(
+				// 	Math.random() * 1000000000000000000000000000000000000000000000000000
+				// );
 
 				const userInputdata = {
 					firstname,
