@@ -13,7 +13,6 @@ export const getStaticProps = async () => {
 		props: { testsdata: data },
 	};
 };
-
 function Home({ testsdata }) {
 	return !testsdata ? (
 		<div className="pageLoading">

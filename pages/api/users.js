@@ -7,7 +7,7 @@ export default function handler(req, res) {
 		res.status(200).json(data.users);
 	} else if (req.method === 'POST') {
 		const newUser = {
-			_id: req.body.id,
+			_id: req.body.email,
 			firstname: req.body.firstname,
 			lastname: req.body.lastname,
 			email: req.body.email,
