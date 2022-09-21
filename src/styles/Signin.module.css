@@ -51,9 +51,10 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	width: 35%;
 	margin-top: 5%;
 	gap: 100px;
+	width: 100%;
+	max-width: 700px;
 }
 .form div {
 	position: relative;
@@ -123,6 +124,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 }
 .form .formfooter input {
 	width: fit-content;
@@ -194,7 +196,7 @@
 		margin-right: 50px;
 	}
 	.header h1 {
-		font-size: 3rem;
+		font-size: 2.8rem;
 	}
 	.header p {
 		width: 70%;

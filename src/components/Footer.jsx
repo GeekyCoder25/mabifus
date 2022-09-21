@@ -1,7 +1,7 @@
 import Link from 'next/link';
 const Footer = () => {
 	return (
-		<article className='footer'>
+		<footer className='footer'>
 			<section>
 				<div>
 					<h1>Menu</h1>
@@ -96,7 +96,7 @@ const Footer = () => {
 				<h1>Mabifus</h1>
 				<p>&copy; Geeky Coder, 2022 All rights Reserved</p>
 			</div>
-		</article>
+		</footer>
 	);
 };
 

@@ -43,10 +43,17 @@ const Sigin = () => {
 		const email = document.querySelector('#email');
 		const password = document.querySelector('#password');
 		const inputsfilter = [...inputs].filter(input => input.value === '');
+		setloading(
+			<>
+				Logging in
+				<i className="dotTyping"></i>
+			</>
+		);
 		inputsfilter.forEach(input => {
 			const label = input.nextElementSibling;
 			label?.classList.add(styles.labelerror);
 			input.classList.add(styles.error);
+			setloading(<>Login</>);
 		});
 		inputs.forEach(input => {
 			input.addEventListener('change', () => {
@@ -60,15 +67,13 @@ const Sigin = () => {
 				setPasswordValid(null);
 			});
 		});
-		setloading(<>Login</>);
 		const getData = async () => {
 			const res = await fetch('/api/users');
 			const data = await res.json();
 			return data;
 		};
 		getData().then(data => {
-			console.log(data);
-			const getUser = data.find(user => user.id === email.value);
+			const getUser = data.find(user => user.email === email.value);
 			if (
 				inputsfilter <= 0 &&
 				(email.value.length < 6 ||
@@ -82,6 +87,7 @@ const Sigin = () => {
 					</>
 				);
 				email.classList.add(styles.error);
+				setloading(<>Login</>);
 			} else if (inputsfilter <= 0 && !getUser) {
 				setEmailvalid(
 					<>
@@ -92,6 +98,7 @@ const Sigin = () => {
 						</Link>
 					</>
 				);
+				setloading(<>Login</>);
 			} else if (inputsfilter <= 0 && password.value !== getUser.password) {
 				setPasswordValid(
 					<>
@@ -100,22 +107,13 @@ const Sigin = () => {
 					</>
 				);
 				password.classList.add(styles.error);
+				setloading(<>Login</>);
 			} else if (inputsfilter <= 0) {
 				console.log('Logging In');
-				setloading(
-					<>
-						Logging in
-						<i className="dotTyping"></i>
-					</>
-				);
 				setTimeout(() => {
 					push('/');
-				}, 5000);
-				localStorage.setItem(
-					'username',
-					`${getUser.firstname} ${getUser.lastname}`
-				);
-				localStorage.setItem('email', `${getUser.email}`);
+				}, 1500);
+				localStorage.setItem('mabifusUserToken', `${getUser._id}`);
 			}
 		});
 	};

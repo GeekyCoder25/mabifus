@@ -1,0 +1,347 @@
+.findADoctorStyles {
+	width: 95%;
+	margin: auto;
+	max-width: 1400px;
+}
+.header {
+	padding-top: 120px;
+	margin-bottom: 20px;
+	text-align: center;
+	text-transform: capitalize;
+}
+.doctorimage {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	margin: 100px auto 50px;
+}
+.doctorimage img {
+	border-radius: 15px;
+}
+.doctorimagemobile {
+	display: none;
+}
+.branches {
+	display: none;
+	justify-content: space-around;
+	align-items: center;
+	margin: auto;
+}
+.branches div:first-child {
+	background-color: rgb(112, 165, 215);
+}
+.branches div:last-child {
+	background-color: rgb(249, 184, 149);
+}
+.branches div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	text-align: center;
+	color: #fff;
+	width: 150px;
+	height: 150px;
+	background-color: rgb(114, 204, 212);
+	border-radius: 14px;
+}
+.doctorslistcontainer {
+	min-width: 100%;
+	margin: auto;
+}
+.doctorslistcontainer .header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding-top: 50px;
+}
+.doctorslistcontainer .header h4 {
+	padding: 5px 20px;
+	transform: translateY(5px);
+	cursor: pointer;
+	margin-right: 20px;
+	transition: all 0.3s ease;
+	border-radius: 20px;
+}
+.doctorslistcontainer .header h4:hover {
+	background-color: var(--textColor);
+	color: var(--boxColor);
+}
+.doctorslistcontainer .doctorslistsubcontainer {
+	display: grid;
+	grid-template-columns: repeat(3, 430px);
+	flex-wrap: wrap;
+	gap: 40px;
+	margin: 50px auto;
+	min-height: 351px;
+}
+.doctorslistcontainer .doctorslist {
+	padding: 20px 30px;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	box-shadow: 1px 1px 10px 1px var(--boxShadow);
+	position: relative;
+}
+.doctorslistcontainer .doctorslist img {
+	flex: 1.5;
+	border-radius: 50%;
+	background-color: #000;
+	object-fit: cover;
+}
+.doctorslistcontainer .doctorslist > div:not(:first-child) {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+.doctorslistcontainer .doctorslist > div > h1 {
+	font-size: 1.8rem;
+}
+.doctorslistcontainer .doctorslist > div i {
+	margin-right: 10px;
+}
+.doctorslistcontainer .doctorslist > div button {
+	position: absolute;
+	right: 0.625rem;
+	bottom: 0.625rem;
+}
+
+/* doctor params page */
+.findADoctorStylesParams {
+	margin: auto;
+	max-width: 1400px;
+	display: flex;
+	gap: 50px;
+	margin-top: 50px;
+}
+.headerParams {
+	padding-top: 74px;
+	position: relative;
+}
+.headerParams i {
+	font-size: 2rem;
+	color: var(--textColor);
+	position: absolute;
+	z-index: 1;
+	transform: translate(-70px, -10px);
+	cursor: pointer;
+}
+/*.doctorImageHeaderBlur {
+	filter: blur(10px); 
+	position: fixed;
+	margin-bottom: 200px;
+	z-index: -1; 
+	transform: translateY(-200px);
+}*/
+.doctorImageHeaderMobile {
+	display: none;
+}
+.doctorImageHeader img {
+	object-fit: cover;
+	background-color: #000;
+	border-radius: 50%;
+}
+.doctorsSection {
+	padding: 80px 20px 0;
+	border-radius: 50px;
+	background-color: var(--backgroundColor);
+}
+.doctorsSection .doctorsSectionHeaderContainer {
+	display: flex;
+	justify-content: center;
+}
+.doctorsSection .doctorsSectionHeader h1 {
+	font-size: 3rem;
+}
+.doctorsSection .doctorsSectionHeader {
+	text-align: center;
+	margin: 15px 0 50px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	justify-content: center;
+	align-items: flex-start;
+}
+.appointment {
+	display: flex;
+	justify-content: space-between;
+	margin: 0px 0px 30px 0px;
+}
+.appointment span span {
+	width: 100px;
+	text-align: center;
+	display: inline-block;
+}
+
+.content {
+	font-size: 1.3rem;
+	line-height: 40px;
+}
+.calendarContainer {
+	margin-bottom: 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	overflow-x: scroll;
+	height: 130px;
+}
+.calendarContainer::-webkit-scrollbar {
+	display: none;
+}
+.calendarContainer > div {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 1.3rem;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 13px;
+}
+.calendarContainer .today {
+	color: #fff;
+	background-color: var(--themeColor);
+	border-radius: 30px;
+	box-shadow: 2px 2px 15px var(--themeColor);
+}
+.appointment a {
+	padding: 5px 30px 0 0;
+	color: var(--themeColor);
+	font-weight: 600;
+}
+.appointment i {
+	cursor: pointer;
+}
+.about {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0px 10px;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+.about > div {
+	background-color: var(--themeColor);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	gap: 2px;
+	text-align: center;
+	width: 100px;
+	height: 80px;
+}
+
+.about > div p {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+.footer a {
+	background-color: rgba(255, 255, 255, 0.3);
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--themeColor);
+	color: #fff;
+	border-radius: 50px;
+	padding: 30px;
+	margin: 70px 0;
+}
+@media (max-width: 768px) {
+	.profileimage {
+		display: block;
+	}
+	.doctorimage {
+		display: none;
+	}
+	.doctorimagemobile {
+		display: block;
+		width: 90%;
+		height: fit-content;
+		margin: 50px auto;
+		position: relative;
+	}
+	.doctorimagemobile img {
+		border-radius: 10px;
+		object-fit: contain;
+		margin: auto;
+		width: 100%;
+	}
+	.doctorimagemobile .animation {
+		animation: animate-left 5s linear infinite;
+	}
+	@keyframes animate-left {
+		0% {
+			transform: translateX(100%);
+		}
+		10% {
+			transform: translateX(0);
+		}
+		90% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+	.branches {
+		display: flex;
+	}
+	.doctorslistcontainer .doctorslistsubcontainer {
+		display: block;
+		width: 95%;
+		margin: auto;
+		min-height: 800px;
+	}
+	.doctorslistcontainer .doctorslist {
+		margin: 50px auto;
+		max-width: 800px;
+	}
+	.findADoctorStylesParams {
+		display: unset;
+	}
+	.headerParams i {
+		color: #fff;
+		transform: translate(0);
+		margin: 20px;
+	}
+	.doctorImageHeader {
+		display: none;
+	}
+	.doctorImageHeaderMobile {
+		display: block;
+	}
+	.doctorImageHeaderMobile img {
+		background-color: #000;
+		object-fit: cover;
+	}
+	.doctorsSection {
+		transform: translateY(-50px);
+	}
+	.doctorsSection .doctorsSectionHeader {
+		position: absolute;
+		z-index: 2;
+		background-color: rgb(112, 165, 215);
+		color: #fff;
+		border-radius: 50px;
+		padding: 15px;
+		transform: translateY(-150px);
+		margin: auto;
+		width: 85%;
+		gap: 10px;
+		align-items: center;
+	}
+	.doctorsSection .doctorsSectionHeader h1 {
+		font-size: 1.2rem;
+	}
+}

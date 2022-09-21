@@ -14,6 +14,6 @@ const Meta = ({ title, description, keywords }) => {
 Meta.defaultProps = {
 	title: 'Welcome',
 	description: 'Mabifus Medical Blog',
-keywords: 'mabifus, mabifus medical, mabifus medical page,',
+	keywords: 'mabifus, mabifus medical, mabifus medical page,',
 };
 export default Meta;

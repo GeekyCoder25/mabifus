@@ -1,20 +1,24 @@
-.body {
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	--backgroundcolor: #f2f6fe;
-	--themecolor: #585ce5;
-	--cardbackgroundcolor: #ffffff;
-	--textcolor: #19265b;
-	--buttonbackgroundcolor: #e9eaff;
-	background-color: var(--backgroundcolor);
-	color: var(--textcolor);
-	font-family: 'Tiro Gurmukhi', serif;
+.profilestyles {
+	margin: auto;
+	max-width: 1400px;
 }
 .header {
 	margin: 100px auto auto;
 	width: 95%;
+}
+.header section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header section h1 a {
+	width: 100%;
+}
+.header section h1 {
+	padding: 5px 10px;
+	border-radius: 30px;
+	border: 3px solid;
+	cursor: pointer;
 }
 .profileimage {
 	background-color: black;
@@ -22,18 +26,24 @@
 	margin: 50px auto;
 	border-radius: 50%;
 	padding: 20px;
-	/* border: double 5px var(--themecolor); */
+	/* border: double 5px var(--themeColor); */
 	position: relative;
+	width: 240px;
+	height: 240px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.profileimage .fas {
-	background-color: var(--backgroundcolor);
+.profileimage .fa-camera {
+	background-color: var(--backgroundColor);
 	padding: 5px;
 	border-radius: 50%;
-	color: var(--themecolor);
+	color: var(--themeColor);
 	font-size: 1.5rem;
 	position: absolute;
 	bottom: 30px;
 	right: 10px;
+	cursor: pointer;
 }
 .profileimage input {
 	display: none;
@@ -43,17 +53,33 @@
 	margin: auto;
 	margin-bottom: 100px;
 }
-.main section{
-    margin-top: 40px;
+.main section {
+	margin-top: 40px;
 }
-.main section > p:first-of-type {
+.main section > label {
 	margin-top: 20px;
+	display: inline-block;
 }
-.main .textborder {
+.main .editinput {
+	display: none;
+}
+.main .showeditinput {
+	display: block;
+	background-color: var(--inputColor);
+	color: var(--grayScale);
+}
+.main .textborder,
+.main .editinput {
 	border-radius: 5px;
-	border: 1px solid rgba(0, 0, 0, 0.5);
+	border: 1px solid var(--semiGrayscale);
 	padding: 10px;
 	margin: 20px auto;
+	min-height: 43px;
+	width: 100%;
+}
+.main .nameinputContainer {
+	display: flex;
+	gap: 50px;
 }
 .main .datecontainer {
 	position: relative;
@@ -62,17 +88,48 @@
 	position: absolute;
 	right: 10px;
 	top: 65%;
+	cursor: pointer;
 }
 .main .gendercontainer {
 	display: flex;
 	justify-content: space-between;
-	gap: 40px;
+	gap: 2.5rem;
 }
 .main .gendercontainer p {
 	width: 50%;
-	border: 1px solid rgba(0, 0, 0, 0.5);
+	border: 1px solid var(--borderColor);
 	display: flex;
-	gap: 10px;
+	flex-direction: row-reverse;
+	gap: 0.625rem;
 	justify-content: center;
-	padding-right: 20px;
+	padding-right: 1.25rem;
+	text-transform: capitalize;
+}
+.main .submitbuttoncontainer {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1.875rem;
+}
+.main .submitbuttoncontainer button {
+	border: 1px solid var(--themeColor);
+}
+.main button {
+	width: 30%;
+	border-radius: 1rem;
+	font-size: 1.5rem;
+	padding: 1.25rem;
+	display: none;
+}
+.main button:first-child {
+	background-color: #585ce5;
+	color: #fff;
+}
+@media (max-width: 900px) {
+	.main .submitbuttoncontainer {
+		flex-direction: column;
+		gap: 40px;
+	}
+	.main button {
+		width: 100%;
+	}
 }

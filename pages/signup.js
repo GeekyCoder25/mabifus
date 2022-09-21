@@ -79,22 +79,31 @@ const Signup = () => {
 			setEmailvalid(null);
 			setPasswordValid(null);
 		});
-		setloading('Create account');
+		setEmailvalid(null);
+		setPasswordValid(null);
+		setconfirmPasswordValid(null);
+		setloading(
+			<>
+				Creating your account
+				<span className="dotTyping"></span>
+			</>
+		);
 		const getData = async () => {
 			const res = await fetch('/api/users');
 			const data = await res.json();
 			return data;
 		};
 		getData().then(data => {
-			const getUser = data.find(user => user.id === emailInput.value);
-			if (inputsfilter.length !== 0)
+			const getUser = data.find(user => user.email === emailInput.value);
+			if (inputsfilter.length !== 0) {
 				setconfirmPasswordValid(
 					<>
 						{exclamationIcon}
-						<span>Please input alsl fields</span>
+						<span>Please input all fields</span>
 					</>
 				);
-			else if (
+				setloading('Create account');
+			} else if (
 				inputsfilter <= 0 &&
 				(emailInput.value.length < 6 ||
 					!emailInput.value.includes('@') ||
@@ -107,6 +116,7 @@ const Signup = () => {
 					</>
 				);
 				emailInput.classList.add(styles.error);
+				setloading('Create account');
 			} else if (inputsfilter <= 0 && getUser?.email !== undefined) {
 				setconfirmPasswordValid(
 					<>
@@ -117,7 +127,11 @@ const Signup = () => {
 						</Link>
 					</>
 				);
+				emailInput.addEventListener('change', () =>
+					setconfirmPasswordValid(null)
+				);
 				emailInput.classList.add(styles.error);
+				setloading('Create account');
 			} else if (inputsfilter <= 0 && passwordInput.value.length < 8) {
 				setPasswordValid(
 					<>
@@ -126,6 +140,7 @@ const Signup = () => {
 					</>
 				);
 				passwordInput.classList.add(styles.error);
+				setloading('Create account');
 			} else if (
 				inputsfilter <= 0 &&
 				passwordInput.value !== confirmPassword.value
@@ -138,6 +153,7 @@ const Signup = () => {
 				);
 				passwordInput.classList.add(styles.error);
 				confirmPassword.classList.add(styles.error);
+				setloading('Create account');
 			} else if (inputsfilter <= 0 && !acceptterms.checked) {
 				const accepttermscontainer =
 					document.querySelector('#acceptterms').parentNode;
@@ -147,27 +163,21 @@ const Signup = () => {
 					500
 				);
 				setconfirmPasswordValid(null);
+				setloading('Create account');
 			} else if (inputsfilter <= 0) {
-				setconfirmPasswordValid(null);
-				setPasswordValid(null);
 				console.log('Creating your Account');
-				setloading(
-					<>
-						Creating your account
-						<span className="dotTyping"></span>
-					</>
-				);
-
 				const firstname = document.querySelector('#firstname').value;
 				const lastname = document.querySelector('#lastname').value;
 				const email = document.querySelector('#email').value;
 				const password = document.querySelector('#password').value;
+				// const id = Math.ceil(Math.random() * 1000000000000000000000000000000000000000000000000000);
 
 				const userInputdata = {
 					firstname,
 					lastname,
 					email,
 					password,
+					// id,
 				};
 				const postData = async () => {
 					const res = await fetch('/api/users', {
@@ -179,15 +189,15 @@ const Signup = () => {
 					return data;
 				};
 				postData().then(
-					localStorage.setItem(
-						'username',
-						`${userInputdata.firstname} ${userInputdata.lastname}`
-					),
-					localStorage.setItem('email', `${userInputdata.email}`),
+					localStorage.setItem('mabifusUserToken', `${userInputdata.email}`),
 					setTimeout(() => {
 						setconfirmPasswordValid(
 							<span className={styles.formSuccess}>
-								{exclamationIcon}
+								<i
+									className={`${'fas fa-square-check'} ${
+										styles['fa-circle-exclamation']
+									}`}
+								></i>
 								<span>Your Account has been created sucessfully</span>
 							</span>
 						);
@@ -197,8 +207,8 @@ const Signup = () => {
 								<span className="dotTyping"></span>
 							</>
 						);
-						push('/')
-					}, 1500),
+						push('/');
+					}, 1500)
 				);
 			}
 		});

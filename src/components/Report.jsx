@@ -15,7 +15,9 @@ const AddNew = props => {
 		const addednew = {
 			title: title,
 			size: size,
-			id: props.result.length + 1,
+			_id: Math.ceil(
+				Math.random() * 1000000000000000000000000000000000000000000000000000
+			),
 		};
 		const file = document.querySelector('#title').value;
 		file !== '' && settitle(file);
@@ -24,13 +26,11 @@ const AddNew = props => {
 		} else {
 			bg.classList.remove('blurbg');
 			props.setAddNew(null);
-			fetch(`/api/report/${localStorage.getItem('email')}`, {
+			fetch(`/api/report/${localStorage.getItem('mabifusUserToken')}`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(addednew),
-			})
-				.then(props.set([...props.reportBar, addednew]))
-				.then(console.log('Yo! The process has benn completed'));
+			}).then(props.set([...props.reportBar, addednew]));
 		}
 	};
 	const escKeyPress = e => {
@@ -105,9 +105,9 @@ const Report = () => {
 	let month = date.toLocaleString('default', { month: 'long' });
 	let year = date.getFullYear();
 	useEffect(() => {
-		const emailLocalStorageCheck = localStorage.getItem('email');
+		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
 		emailLocalStorageCheck &&
-			fetch(`/api/report/${localStorage.getItem('email')}`)
+			fetch(`/api/report/${localStorage.getItem('mabifusUserToken')}`)
 				.then(res => res.json())
 				.then(data => {
 					setReportBar(data);
@@ -116,7 +116,6 @@ const Report = () => {
 			? sethandleUserSignIn(true)
 			: sethandleUserSignIn(false);
 	}, []);
-
 	return (
 		<section className="chart">
 			<div>
@@ -147,7 +146,7 @@ const Report = () => {
 										setAddNew={setAddNew}
 										set={setReportBar}
 										reportBar={reportBar}
-										result={reportBar.map(result => result.id)}
+										result={reportBar.map(result => result._id)}
 									/>
 								);
 							}}
@@ -161,7 +160,7 @@ const Report = () => {
 			{reportBar && reportBar.length > 0 ? (
 				<div className="report-content">
 					{reportBar.map(result => (
-						<section key={result.id}>
+						<section key={result._id}>
 							<div>
 								<i className="fas fa-file"></i>
 								<div>
@@ -174,14 +173,14 @@ const Report = () => {
 									className="fas fa-trash"
 									onClick={() => {
 										fetch(
-											`/api/report/${localStorage.getItem('email')}/${
-												result.id
-											}`,
+											`/api/report/${localStorage.getItem(
+												'mabifusUserToken'
+											)}/${result._id}`,
 											{
 												method: 'DELETE',
 											}
 										).then(
-											setReportBar(reportBar.filter(i => i.id !== result.id))
+											setReportBar(reportBar.filter(i => i._id !== result._id))
 										);
 									}}
 								></i>

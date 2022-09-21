@@ -52,8 +52,8 @@
 	grid-auto-rows: 70px;
 	margin-top: 50px;
 	gap: 30px;
-	width: 30%;
-	min-width: 700px;
+	width: 100%;
+	max-width: 700px;
 	position: relative;
 }
 .form div {
