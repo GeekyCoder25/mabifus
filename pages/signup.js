@@ -170,14 +170,16 @@ const Signup = () => {
 				const lastname = document.querySelector('#lastname').value;
 				const email = document.querySelector('#email').value;
 				const password = document.querySelector('#password').value;
-				// const id = Math.ceil(Math.random() * 1000000000000000000000000000000000000000000000000000);
+				const id = Math.ceil(
+					Math.random() * 1000000000000000000000000000000000000000000000000000
+				);
 
 				const userInputdata = {
 					firstname,
 					lastname,
 					email,
 					password,
-					// id,
+					id,
 				};
 				const postData = async () => {
 					const res = await fetch('/api/users', {
@@ -189,7 +191,7 @@ const Signup = () => {
 					return data;
 				};
 				postData().then(
-					localStorage.setItem('mabifusUserToken', `${userInputdata.email}`),
+					localStorage.setItem('mabifusUserToken', `${userInputdata.id}`),
 					setTimeout(() => {
 						setconfirmPasswordValid(
 							<span className={styles.formSuccess}>

@@ -89,7 +89,7 @@ const Navbar = ({ handleMode }) => {
 	useEffect(() => {
 		const navlinkpaths = document.querySelectorAll('ul li a');
 		navlinkpaths.forEach(navlink => {
-			if (pathname === navlink.getAttribute('href')) {
+			if (`/${pathname.split('/')[1]}` === navlink.getAttribute('href')) {
 				navlink.classList.add('navactive');
 				navlink.firstChild.classList.add('navactive');
 			} else {

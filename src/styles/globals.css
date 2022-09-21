@@ -1,4 +1,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap'); */
+@font-face {
+	font-family: 'Tiro Gurmukhi';
+	src: url(../assets/ReadexPro-Regular.ttf);
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -12,9 +16,6 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
 	background-color: var(--backgroundColor);
 	color: var(--textColor);
 	font-family: 'Tiro Gurmukhi', serif;
@@ -50,10 +51,6 @@ body {
 	--footerColor: var(--themeColor);
 	--inputColor: rgb(255, 255, 255);
 	--boxShadow: rgba(0, 0, 0, 0.3);
-}
-@font-face {
-	font-family: 'Tiro Gurmukhi';
-	src: url(../assets/ReadexPro-Regular.ttf);
 }
 a {
 	color: inherit;

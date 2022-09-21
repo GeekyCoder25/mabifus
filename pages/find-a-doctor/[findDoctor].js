@@ -37,19 +37,6 @@ const DoctorsData = () => {
 			fetch(`/api/doctorslist/${query.findDoctor}`)
 				.then(res => res.json())
 				.then(data => setdoctors(data));
-		// const imageBlur = () => {
-		// 	if (scrollY > 200) {
-		// 		ImageHeaderRef.current.classList.add(styles.doctorImageHeaderBlur);
-		// 		doctorsSection.current.classList.add(styles.doctorsSectionActive);
-		// 	} else {
-		// 		ImageHeaderRef.current.classList.remove(styles.doctorImageHeaderBlur);
-		// 		doctorsSection.current.classList.remove(styles.doctorsSectionActive);
-		// 	}
-
-		// 	// console.log(ImageHeaderRef.current);
-		// };
-		// document.addEventListener('scroll', imageBlur);
-		// return document.removeEventListener('scroll', imageBlur);
 	}, [query.findDoctor]);
 	const increaseMonth = () => {
 		setMonthIndex(prevState => prevState + 1);

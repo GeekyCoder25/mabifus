@@ -1,6 +1,6 @@
 import styles from '../../src/styles/Find-a-doctor.module.css';
 import Link from 'next/link';
-import Meta from '../Meta';
+import Meta from '../../src/components/Meta';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 const Find = () => {
