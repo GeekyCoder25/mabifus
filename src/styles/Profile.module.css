@@ -20,6 +20,9 @@
 	border: 3px solid;
 	cursor: pointer;
 }
+.profileimage img {
+	border-radius: 50%;
+}
 .profileimage {
 	background-color: black;
 	width: fit-content;

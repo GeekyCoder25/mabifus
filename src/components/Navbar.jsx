@@ -151,14 +151,12 @@ const Navbar = ({ handleMode }) => {
 				{handleUserSignIn ? (
 					<Link href={'/profile'}>
 						<a className="navprofileimage">
-							<span>
-								<Image
-									src="/images/profile.png"
-									alt="logo"
-									width={32}
-									height={30}
-								/>
-							</span>
+							<Image
+								src="/images/profile.png"
+								alt="logo"
+								width={32}
+								height={28}
+							/>
 						</a>
 					</Link>
 				) : (
