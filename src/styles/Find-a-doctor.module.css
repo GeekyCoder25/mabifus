@@ -69,14 +69,14 @@
 	color: var(--boxColor);
 }
 .doctorslistcontainer .doctorslistsubcontainer {
-	display: grid;
-	grid-template-columns: repeat(3, 430px);
+	display: flex;
 	flex-wrap: wrap;
 	gap: 40px;
 	margin: 50px auto;
-	min-height: 351px;
+	justify-content: space-evenly;
 }
 .doctorslistcontainer .doctorslist {
+	width: 430px;
 	padding: 20px 30px;
 	border-radius: 15px;
 	display: flex;
@@ -112,6 +112,7 @@
 /* doctor params page */
 .findADoctorStylesParams {
 	margin: auto;
+	width: 95%;
 	max-width: 1400px;
 	display: flex;
 	gap: 50px;
@@ -270,6 +271,7 @@
 		height: fit-content;
 		margin: 50px auto;
 		position: relative;
+		overflow: hidden;
 	}
 	.doctorimagemobile img {
 		border-radius: 10px;
@@ -301,7 +303,6 @@
 		display: block;
 		width: 95%;
 		margin: auto;
-		min-height: 800px;
 	}
 	.doctorslistcontainer .doctorslist {
 		margin: 50px auto;

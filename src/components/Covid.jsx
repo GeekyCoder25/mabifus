@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+/* eslint-disable @next/next/no-img-element */
 const Covid = () => {
 	return (
 		<section className="covid">
@@ -27,12 +26,7 @@ export default Covid;
 export const Covid19 = props => {
 	return (
 		<div className="covidImage">
-			<Image
-				src={`/images/${props.img}.png`}
-				alt="doctor logo"
-				width={100}
-				height={100}
-			/>
+			<img src={`/images/${props.img}.png`} alt="doctor logo" />
 			<p>{props.text}</p>
 		</div>
 	);

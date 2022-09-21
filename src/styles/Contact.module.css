@@ -1,6 +1,7 @@
 .contactStyles {
 	margin: auto;
 	max-width: 1400px;
+	width: 95%;
 }
 .header {
 	padding-top: 120px;
@@ -151,6 +152,9 @@
 	border-radius: 20px;
 }
 @media (max-width: 768px) {
+	.contactStyles {
+		width: 100%;
+	}
 	.header {
 		flex-direction: column;
 	}

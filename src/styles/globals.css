@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
-/* @font-face {
+/* @import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap'); */
+@font-face {
 	font-family: 'Tiro Gurmukhi';
 	src: url(../assets/ReadexPro-Regular.ttf);
-} */
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -667,10 +667,10 @@ nav .button {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 50px;
+	gap: 80px;
 	background-color: var(--themeColor);
 	color: #fff;
-	padding: 50px;
+	padding: 30px 50px;
 	position: absolute;
 	right: 0;
 	left: 0;
@@ -680,13 +680,13 @@ nav .button {
 .covid > div {
 	display: flex;
 	justify-content: space-around;
-	gap: 20px;
-	width: 2000px;
+	gap: 0px;
 	overflow-y: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 }
 .covid > .moving {
+	width: 1600px;
 	animation: moving 60s linear infinite;
 }
 .covid > div::-webkit-scrollbar {
@@ -714,6 +714,7 @@ nav .button {
 }
 .covid div img {
 	border-radius: 50%;
+	width: 80px;
 }
 .offerContainer {
 	display: flex;
@@ -721,7 +722,7 @@ nav .button {
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-	margin: 550px auto 50px;
+	margin: 500px auto 50px;
 }
 .offerBox {
 	display: flex;
@@ -923,11 +924,17 @@ option {
 	.offerContainer {
 		margin: 600px auto 50px;
 	}
+	.covid > .moving {
+		width: 2000px;
+	}
 	.covid {
 		gap: 100px;
 	}
 	.covid > .covidHeader div {
 		font-size: 2.5rem;
+	}
+	.covid div img {
+		width: 100px;
 	}
 	.footer section {
 		flex-direction: row;

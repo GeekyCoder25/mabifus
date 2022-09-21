@@ -54,7 +54,7 @@ const Find = () => {
 				<div className={styles.doctorimagemobile}>
 					<Image
 						className="profileimage"
-						src={`/../public/images/${findDoctor[imageIndex]}.jpg`}
+						src={`/images/${findDoctor[imageIndex]}.jpg`}
 						alt="doctor"
 						width={600}
 						height={400}
@@ -67,7 +67,7 @@ const Find = () => {
 						<Image
 							key={doctor}
 							className="profileimage"
-							src={`/../public/images/${doctor}.jpg`}
+							src={`/images/${doctor}.jpg`}
 							alt="doctor"
 							width={600}
 							height={400}
