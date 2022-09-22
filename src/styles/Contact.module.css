@@ -42,12 +42,13 @@
 }
 .form :is(input, textarea):not([type='checkbox']) {
 	margin: 20px auto 30px;
-	padding: 0 0 10px 10px;
+	padding: 15px 0 10px 10px;
 	width: 100%;
 	outline: none;
 	border: none;
 	border-bottom: 2px solid var(--grayScale);
 	background: transparent;
+	color: var(--textColor);
 }
 .form fieldset {
 	display: flex;

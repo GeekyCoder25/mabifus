@@ -1,4 +1,4 @@
-import data from '../../src/data/db.json';
+import data from '../../public/data/mabifusdb.json';
 
 const fs = require('fs');
 
@@ -20,7 +20,7 @@ export default function handler(req, res) {
 			height: '',
 			weight: '',
 			report: [
-				{ title: 'Toyib Blood Pressure Report', size: '2 Mb', _id: 1 },
+				{ title: 'Blood Pressure Report', size: '2 Mb', _id: 1 },
 				{ title: 'Heart Rate Report', size: '70 Kb', _id: 2 },
 				{ title: 'Glucose Level Report', size: '155 Kb', _id: 3 },
 				{ title: 'Blood Count Report', size: '4 Mb', _id: 4 },
@@ -36,7 +36,7 @@ export default function handler(req, res) {
 
 		data.users.push(newUser);
 		fs.writeFile(
-			'./src/data/db.json',
+			'./public/data/mabifusdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);
@@ -45,7 +45,7 @@ export default function handler(req, res) {
 		res.status(204).json('Delete Successful');
 		data.users.length = 0;
 		fs.writeFile(
-			'./src/data/db.json',
+			'./public/data/mabifusdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);

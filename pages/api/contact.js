@@ -1,4 +1,4 @@
-import data from '../../src/data/contactdb.json';
+import data from '../../public/data/contactdb.json';
 const fs = require('fs');
 
 export default function handler(req, res) {
@@ -14,7 +14,7 @@ export default function handler(req, res) {
 		};
 		contactForm.push(contactUpdate);
 		fs.writeFile(
-			'./src/data/contactdb.json',
+			'./public/data/contactdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);
@@ -24,7 +24,7 @@ export default function handler(req, res) {
 		res.status(204).json('Delete Successful');
 		contactForm.length = 0;
 		fs.writeFile(
-			'./src/data/contactdb.json',
+			'./public/data/contactdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);

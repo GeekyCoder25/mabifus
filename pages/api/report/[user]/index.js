@@ -1,4 +1,4 @@
-import data from '../../../../src/data/db.json';
+import data from '../../../../public/data/mabifusdb.json';
 const fs = require('fs');
 
 export default function handler(req, res) {
@@ -16,7 +16,7 @@ export default function handler(req, res) {
 		};
 		selectUser.push(newReport);
 		fs.writeFile(
-			'./src/data/db.json',
+			'./public/data/mabifusdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);

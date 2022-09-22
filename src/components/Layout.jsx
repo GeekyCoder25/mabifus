@@ -32,14 +32,16 @@ const Layout = ({ children }) => {
 		<>
 			{!noNavFooter.includes(pathname) && <Navbar handleMode={handleMode} />}
 			{children}
-			<div className="colorScheme">
-				<i
-					className={`fas fa-${
-						colorScheme === 'dark' ? 'moon' : 'circle-half-stroke'
-					}`}
-					onClick={handleMode}
-				></i>
-			</div>
+			{!noNavFooter.includes(pathname) && (
+				<div className="colorScheme">
+					<i
+						className={`fas fa-${
+							colorScheme === 'dark' ? 'circle-half-stroke' : 'moon'
+						}`}
+						onClick={handleMode}
+					></i>
+				</div>
+			)}
 			{!noNavFooter.includes(pathname) && <Footer />}
 		</>
 	);

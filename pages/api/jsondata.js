@@ -1,4 +1,4 @@
-import data from '../../src/data/db.json';
+import data from '../../public/data/mabifusdb.json';
 
 export default function handler(req, res) {
 	if (req.method === 'GET') {
