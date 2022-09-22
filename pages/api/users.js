@@ -1,4 +1,4 @@
-import data from '../../public/data/mabifusdb.json';
+import data from '../../src/data/mabifusdb.json';
 
 const fs = require('fs');
 
@@ -36,7 +36,7 @@ export default function handler(req, res) {
 
 		data.users.push(newUser);
 		fs.writeFile(
-			'./public/data/mabifusdb.json',
+			'./src/data/mabifusdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);
@@ -45,7 +45,7 @@ export default function handler(req, res) {
 		res.status(204).json('Delete Successful');
 		data.users.length = 0;
 		fs.writeFile(
-			'./public/data/mabifusdb.json',
+			'./src/data/mabifusdb.json',
 			JSON.stringify(data),
 			err => err && console.log(err)
 		);

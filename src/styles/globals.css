@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
 /* @font-face {
 	font-family: 'Tiro Gurmukhi';
 	src: url(../assets/ReadexPro-Regular.ttf);
@@ -240,7 +240,7 @@ nav .button {
 .nav ul li {
 	list-style: none;
 	font-weight: 500;
-	font-size: 1.5625rem;
+	font-size: 1.25rem;
 }
 .nav .navprofileimage {
 	display: block;

@@ -309,10 +309,12 @@ const Signup = () => {
 								</Link>
 							</label>
 						</div>
-						<button type="submit" className={styles.methodsubmit}>
-							<Link href="/method">
-								<a>Change method</a>
-							</Link>
+						<button
+							type="submit"
+							className={styles.methodsubmit}
+							onClick={e => e.preventDefault()}
+						>
+							<a>Change method</a>
 						</button>
 						<button
 							type="submit"

@@ -9,10 +9,14 @@ const Layout = ({ children }) => {
 	const noNavFooter = ['/signin', '/signup', '/404'];
 
 	useEffect(() => {
-		const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+		const defaultColorScheme = window.matchMedia(
+			'(prefers-color-scheme: dark)'
+		);
 		const theme = localStorage.getItem('theme');
-		if (theme) document.body.classList.add(theme);
-		else if (colorScheme.matches) {
+		if (theme) {
+			document.body.classList.add(theme);
+			theme === 'dark' && setColorScheme('dark');
+		} else if (defaultColorScheme.matches) {
 			document.body.classList.add('dark');
 			setColorScheme('dark');
 		} else document.body.classList.add('light');
@@ -33,12 +37,11 @@ const Layout = ({ children }) => {
 			{!noNavFooter.includes(pathname) && <Navbar handleMode={handleMode} />}
 			{children}
 			{!noNavFooter.includes(pathname) && (
-				<div className="colorScheme">
+				<div className="colorScheme" onClick={handleMode}>
 					<i
 						className={`fas fa-${
 							colorScheme === 'dark' ? 'circle-half-stroke' : 'moon'
 						}`}
-						onClick={handleMode}
 					></i>
 				</div>
 			)}
