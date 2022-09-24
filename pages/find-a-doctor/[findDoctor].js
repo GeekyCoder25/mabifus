@@ -94,8 +94,8 @@ const DoctorsData = () => {
 					<div className={styles.doctorsSectionHeaderContainer}>
 						<div className={styles.doctorsSectionHeader}>
 							<h1>{doctors.name}</h1>
-							<p>Senior Cardiologist and Surgeon</p>{' '}
-							<p> United State medical college & hospital</p>
+							<p>Senior {doctors.aspect}</p>
+							<p>{doctors.country} Medical College & Hospital</p>
 						</div>
 					</div>
 					<div className={styles.appointment}>
@@ -128,11 +128,11 @@ const DoctorsData = () => {
 							<span>{day + 1}</span>
 						</div>
 						<div>
-							<p>{days[date.getDay() + 2]}</p>
+							<p>{days[date.getDay() + 2] || days[6 - date.getDay() - 1]}</p>
 							<span>{day + 2}</span>
 						</div>
 						<div>
-							<p>{days[date.getDay() + 3]}</p>
+							<p>{days[date.getDay() + 3] || days[6 - date.getDay()]}</p>
 							<span>{day + 3}</span>
 						</div>
 					</div>

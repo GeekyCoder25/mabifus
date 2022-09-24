@@ -145,6 +145,7 @@
 	color: #fff;
 	text-align: center;
 	width: 70%;
+	min-width: 830px;
 }
 .contactEasily a {
 	font-size: 1.2rem;
@@ -178,6 +179,7 @@
 		padding: 15px 30px;
 		flex-direction: column;
 		gap: 20px;
+		min-width: unset;
 	}
 	.contactEasily a {
 		font-size: 1rem;
