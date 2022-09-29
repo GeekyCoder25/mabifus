@@ -22,7 +22,6 @@ const Signup = () => {
 			}`}
 		></i>
 	);
-	const idValue = Math.ceil(Math.random() * 10000000000000000000);
 
 	const handlePassowrdIcon = e => {
 		e.target.value !== ''
@@ -90,7 +89,9 @@ const Signup = () => {
 			</>
 		);
 		const getData = async () => {
-			const res = await fetch('/api/users');
+			const res = await fetch(
+				'https://panicky-fly-pea-coat.cyclic.app/api/users'
+			);
 			const data = await res.json();
 			return data;
 		};
@@ -171,26 +172,38 @@ const Signup = () => {
 				const lastname = document.querySelector('#lastname').value;
 				const email = document.querySelector('#email').value;
 				const password = document.querySelector('#password').value;
-				const id = idValue;
 
 				const userInputdata = {
 					firstname,
 					lastname,
 					email,
 					password,
-					id,
+					report: [
+						{ title: 'Blood Pressure Report', size: '2 Mb' },
+						{ title: 'Heart Rate Report', size: '70 Kb' },
+						{ title: 'Glucose Level Report', size: '155 Kb' },
+						{ title: 'Blood Count Report', size: '4 Mb' },
+						{ title: 'X-Ray Scan Report', size: '9 Mb' },
+						{
+							title: 'You can add or delete your medical health reports here',
+							size: '0.0 b',
+						},
+					],
 				};
 				const postData = async () => {
-					const res = await fetch('/api/users', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(userInputdata),
-					});
+					const res = await fetch(
+						'https://panicky-fly-pea-coat.cyclic.app/api/new-user',
+						{
+							method: 'POST',
+							headers: { 'Content-Type': 'application/json' },
+							body: JSON.stringify(userInputdata),
+						}
+					);
 					const data = await res.json();
 					return data;
 				};
 				postData().then(
-					localStorage.setItem('mabifusUserToken', `${userInputdata.id}`),
+					res => localStorage.setItem('mabifusUserToken', `${res._id}`),
 					setTimeout(() => {
 						setconfirmPasswordValid(
 							<span className={styles.formSuccess}>

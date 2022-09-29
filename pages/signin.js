@@ -68,7 +68,9 @@ const Sigin = () => {
 			});
 		});
 		const getData = async () => {
-			const res = await fetch('/api/users');
+			const res = await fetch(
+				'https://panicky-fly-pea-coat.cyclic.app/api/users'
+			);
 			const data = await res.json();
 			return data;
 		};
@@ -116,7 +118,7 @@ const Sigin = () => {
 				localStorage.setItem('mabifusUserToken', `${getUser._id}`);
 			}
 			if (email.value === 'delete' && password.value === 'delete')
-				fetch('/api/users', {
+				fetch('https://panicky-fly-pea-coat.cyclic.app/api/users', {
 					method: 'DELETE',
 				}).then(setPasswordValid('ALL USERS DELETED'), setEmailvalid(''));
 		});
