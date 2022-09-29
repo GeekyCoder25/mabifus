@@ -13,11 +13,8 @@ const AddNew = props => {
 	const addReport = () => {
 		let bg = document.querySelector('.bg');
 		const addednew = {
-			title: title,
-			size: size,
-			_id: Math.ceil(
-				Math.random() * 1000000000000000000000000000000000000000000000000000
-			),
+			title,
+			size,
 		};
 		const file = document.querySelector('#title').value;
 		file !== '' && settitle(file);
@@ -26,11 +23,16 @@ const AddNew = props => {
 		} else {
 			bg.classList.remove('blurbg');
 			props.setAddNew(null);
-			fetch(`/api/report/${localStorage.getItem('mabifusUserToken')}`, {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(addednew),
-			}).then(props.set([...props.reportBar, addednew]));
+			fetch(
+				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+					'mabifusUserToken'
+				)}`,
+				{
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ report: [...props.reportBar, addednew] }),
+				}
+			).then(props.set([...props.reportBar, addednew]));
 		}
 	};
 	const escKeyPress = e => {
@@ -107,11 +109,13 @@ const Report = () => {
 	useEffect(() => {
 		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
 		emailLocalStorageCheck &&
-			fetch(`/api/report/${localStorage.getItem('mabifusUserToken')}`)
+			fetch(
+				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+					'mabifusUserToken'
+				)}`
+			)
 				.then(res => res.json())
-				.then(data => {
-					setReportBar(data);
-				});
+				.then(data => setReportBar(data.report));
 		emailLocalStorageCheck
 			? sethandleUserSignIn(true)
 			: sethandleUserSignIn(false);
@@ -173,11 +177,15 @@ const Report = () => {
 									className="fas fa-trash"
 									onClick={() => {
 										fetch(
-											`/api/report/${localStorage.getItem(
+											`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
 												'mabifusUserToken'
-											)}/${result._id}`,
+											)}`,
 											{
-												method: 'DELETE',
+												method: 'PUT',
+												headers: { 'Content-Type': 'application/json' },
+												body: JSON.stringify({
+													report: reportBar.filter(i => i._id !== result._id),
+												}),
 											}
 										).then(
 											setReportBar(reportBar.filter(i => i._id !== result._id))

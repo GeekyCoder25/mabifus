@@ -7,7 +7,7 @@ import Offer from '../src/components/Offer';
 import Covid from '../src/components/Covid';
 
 export const getStaticProps = async () => {
-	const res = await fetch('https://mabifus.vercel.app/api/test');
+	const res = await fetch('https://panicky-fly-pea-coat.cyclic.app/api/tests');
 	const data = await res.json();
 	return {
 		props: { testsdata: data },

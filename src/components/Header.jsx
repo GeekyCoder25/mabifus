@@ -8,7 +8,11 @@ const Header = () => {
 	useEffect(() => {
 		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
 		emailLocalStorageCheck &&
-			fetch(`/api/profile/${localStorage.getItem('mabifusUserToken')}`)
+			fetch(
+				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+					'mabifusUserToken'
+				)}`
+			)
 				.then(res => res.json())
 				.then(data => setusername(`${data.firstname} ${data.lastname}`));
 	}, []);

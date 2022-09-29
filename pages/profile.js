@@ -25,7 +25,11 @@ const Profile = () => {
 			? sethandleUserSignIn(true)
 			: sethandleUserSignIn(false);
 		handleUserSignIn &&
-			fetch(`/api/profile/${localStorage.getItem('mabifusUserToken')}`)
+			fetch(
+				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+					'mabifusUserToken'
+				)}`
+			)
 				.then(res => res.json())
 				.then(data => setuserData(data))
 				.catch(err => setuserData(err.message));
@@ -134,17 +138,21 @@ const Profile = () => {
 			weight,
 			height,
 		};
-		fetch(`/api/profile/${localStorage.getItem('mabifusUserToken')}`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(userInputdata),
-		});
-		setTimeout(() => {
-			canceleditProfile();
-		}, 1000);
-		fetch(`/api/profile/${localStorage.getItem('mabifusUserToken')}`)
-			.then(res => res.json())
-			.then(data => setuserData(data))
+		fetch(
+			`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+				'mabifusUserToken'
+			)}`,
+			{
+				method: 'PUT',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(userInputdata),
+			}
+		)
+			.then(() => {
+				setTimeout(() => {
+					setuserData(userInputdata), canceleditProfile();
+				}, 500);
+			})
 			.catch(err => console.log(err));
 	};
 	useEffect(() => {
