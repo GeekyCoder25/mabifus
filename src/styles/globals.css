@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
-/* @font-face {
+/* @import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap'); */
+@font-face {
 	font-family: 'Tiro Gurmukhi';
 	src: url(../assets/ReadexPro-Light.ttf);
-} */
+}
 * {
 	margin: 0;
 	padding: 0;
