@@ -124,7 +124,7 @@ const Report = () => {
 		<section className="chart">
 			<div>
 				<div>
-					<h2>Heath Reports Document</h2>
+					<h2>Health Reports Document</h2>
 					<select name="heart-rate week" id="heart" className="select">
 						<option value="1-7 {month} {year}">
 							1 - 7 {month} {year}
