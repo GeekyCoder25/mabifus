@@ -1,21 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import doctor from '../../public/images/doctor.png';
-import { useEffect, useState } from 'react';
 
-const Header = () => {
-	const [username, setusername] = useState('');
-	useEffect(() => {
-		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
-		emailLocalStorageCheck &&
-			fetch(
-				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
-					'mabifusUserToken'
-				)}`
-			)
-				.then(res => res.json())
-				.then(data => setusername(`${data.firstname} ${data.lastname}`));
-	}, []);
+const Header = ({ username }) => {
 	return (
 		<header className="home-header">
 			<h1>Dashboard</h1>

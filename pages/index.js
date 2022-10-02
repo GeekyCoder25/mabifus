@@ -5,6 +5,7 @@ import ChartContainer from '../src/components/Chartconatiner';
 import Choose from '../src/components/Choose';
 import Offer from '../src/components/Offer';
 import Covid from '../src/components/Covid';
+import { useEffect, useState } from 'react';
 
 export const getStaticProps = async () => {
 	const res = await fetch('https://panicky-fly-pea-coat.cyclic.app/api/tests');
@@ -14,7 +15,25 @@ export const getStaticProps = async () => {
 	};
 };
 function Home({ testsdata }) {
-	return !testsdata ? (
+	const [handleUserSignIn, sethandleUserSignIn] = useState(false);
+	useEffect(() => {}, []);
+	const [username, setusername] = useState('');
+
+	useEffect(() => {
+		const emailLocalStorageCheck = localStorage.getItem('mabifusUserToken');
+		emailLocalStorageCheck
+			? sethandleUserSignIn(true)
+			: sethandleUserSignIn(false);
+		emailLocalStorageCheck &&
+			fetch(
+				`https://panicky-fly-pea-coat.cyclic.app/api/user/${localStorage.getItem(
+					'mabifusUserToken'
+				)}`
+			)
+				.then(res => res.json())
+				.then(data => setusername(`${data.firstname} ${data.lastname}`));
+	}, [setusername]);
+	return !testsdata || (!username && handleUserSignIn) ? (
 		<div className="pageLoading">
 			<div>
 				Loading
@@ -24,7 +43,7 @@ function Home({ testsdata }) {
 	) : (
 		<section className="home">
 			<Head title="Homepage" description={'Mabifus Medical Dashboard'} />
-			<Header />
+			<Header username={username} />
 			{testsdata && <Tests tests={testsdata} />}
 			<ChartContainer />
 			<Choose />
