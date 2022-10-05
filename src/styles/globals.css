@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Gurmukhi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 /* @font-face {
 	font-family: 'Tiro Gurmukhi';
 	src: url(../assets/ReadexPro-Light.ttf);
@@ -19,6 +19,7 @@ body {
 	background-color: var(--backgroundColor);
 	color: var(--textColor);
 	font-family: 'Tiro Gurmukhi', serif;
+	font-family: 'Poppins', sans-serif;
 }
 .dark {
 	--backgroundColor: rgb(25, 25, 25);

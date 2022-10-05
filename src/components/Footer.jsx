@@ -76,7 +76,7 @@ const Footer = () => {
 				</div>
 				<div className="footer-icons">
 					<h1>Socials</h1>
-					<Link href="https://twitter.com/_GeekyCoder">
+					<Link href="https://twitter.com/_GeekyCoder_">
 						<a>
 							<i className="fab fa-twitter"></i>
 						</a>
