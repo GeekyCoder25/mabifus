@@ -20,6 +20,7 @@ body {
 	color: var(--textColor);
 	font-family: 'Tiro Gurmukhi', serif;
 	font-family: 'Poppins', sans-serif;
+	font-size: 12px;
 }
 .dark {
 	--backgroundColor: rgb(25, 25, 25);
@@ -790,6 +791,9 @@ option {
 	background-color: var(--backgroundColor);
 }
 @media (min-width: 900px) {
+	html {
+		font-size: 16px;
+	}
 	.colorScheme {
 		display: block;
 	}

@@ -40,9 +40,6 @@ const Profile = () => {
 		handlePictureChange.onload = e => {
 			setProfileImageState(e.target.result);
 		};
-
-		// console.log(userPic.current.files[0]);
-		// setprofileImage(userPic.current.files[0]);
 	};
 	const editProfile = e => {
 		e.preventDefault();

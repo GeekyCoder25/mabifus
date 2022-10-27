@@ -42,7 +42,7 @@
 	text-align: center;
 	color: #fff;
 	width: 150px;
-	height: 150px;
+	padding: 25px;
 	background-color: rgb(114, 204, 212);
 	border-radius: 14px;
 }
@@ -300,6 +300,7 @@
 	}
 	.branches {
 		display: flex;
+		gap: 20px;
 	}
 	.doctorslistcontainer .doctorslistsubcontainer {
 		display: block;
